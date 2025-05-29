@@ -115,8 +115,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${maven.allure}</version>
                 <configuration>
-                    <resultsDirectory>allure-results</resultsDirectory>
-                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                    <resultsDirectory>target/allure-results</resultsDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -150,19 +149,12 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
-                    <systemProperties>
-                        <property>
-                            <name>junit.jupiter.tags.filter.tags</name>
-                            <value>slow</value>
-                        </property>
-                    </systemProperties>
+                    <systemPropertyVariables>
+                        <junit.jupiter.tags.filter.tags>slow</junit.jupiter.tags.filter.tags>
+                    </systemPropertyVariables>
                     <useSystemClassLoader>false</useSystemClassLoader>
-                    <forkCount>0</forkCount>
-                    <argLine>-Xmx1024m -XX:MaxMetaspaceSize=512m</argLine>
-                    <argLine>
-                        -javaagent:/Users/marceloend/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
-                    </argLine>
+                    <forkCount>1</forkCount>
+                    <argLine>-Xmx1024m -XX:MaxMetaspaceSize=512m -javaagent:/Users/marceloend/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar -Dcucumber.options="--plugin io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"</argLine>
                 </configuration>
                 <dependencies>
                 </dependencies>
