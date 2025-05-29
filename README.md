@@ -69,7 +69,7 @@ mvn test
 
 # Gerar relatório em HTML (com Allure)
 mvn clean test
-allure serve target/allure-results
+allure serve allure-results
 ```
 
 ---

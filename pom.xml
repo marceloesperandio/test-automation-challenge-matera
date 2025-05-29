@@ -115,7 +115,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${maven.allure}</version>
                 <configuration>
-                    <resultsDirectory>target/allure-results</resultsDirectory>
+                    <resultsDirectory>allure-results</resultsDirectory>
                 </configuration>
                 <executions>
                     <execution>
